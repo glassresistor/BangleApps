@@ -24,7 +24,7 @@ function buzzForEvents() {
   if (nextEvent.allDay || (new Date(nextEvent.timestamp * 1000)).getHours() < 7) return;
   let minToEvent = Math.round((nextEvent.timestamp - getTime()) / 60.0);
   switch (minToEvent) {
-    case 10: Bangle.buzz(50, 0.1); break;
+    case 10: Bangle.buzz(400, 0.1); break;
     case 5: Bangle.buzz(200, 0.5); break;
     case 1: Bangle.buzz(400, 1); break;
     case 0: Bangle.buzz(50, 1); break;

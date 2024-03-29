@@ -14,6 +14,7 @@ function isActive(event) {
 }
 
 function buzzForEvents() {
+  Bangle.buzz(500, 1);
   calendar = require("Storage").readJSON("android.calendar.json",true)||[];
   calendar = calendar.filter(e => isActive(e) || getTime() <= e.timestamp);
   calendar.sort((a,b) => a.timestamp - b.timestamp);
@@ -21,6 +22,7 @@ function buzzForEvents() {
   current = calendar.filter(isActive);
   next = calendar.filter(e=>!isActive(e));
   let nextEvent = next[0]; if (!nextEvent) return;
+  g.setColor('#c6f');
   g.drawString(nextEvent.title, x + wi/2, y + wi/2 + th);
   let minToEvent = Math.round((nextEvent.timestamp - getTime()) / 60.0);
   switch (minToEvent) {

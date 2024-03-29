@@ -6,7 +6,7 @@
   "description": "A bebble style clock to keep the rebellion going",
   "readme": "README.md",
   "icon": "bebble.png",
-  "screenshots": [{"url":"bebble_screenshot.png"}],
+  "screenshots": [],
   "type": "clock",
   "tags": "clock",
   "supports": ["BANGLEJS", "BANGLEJS2"],

@@ -10,4 +10,4 @@
       Get steps from built-in step counter (widpedom no more needed, fix #1697)
 0.10: Tell clock widgets to hide.
 0.11: Swipe down to see widgets
-      Support for fast loading
+0.13: Support for fast loading

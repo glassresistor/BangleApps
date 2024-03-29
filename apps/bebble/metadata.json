@@ -1,22 +1,22 @@
 {
-  "id": "pebble",
-  "name": "Pebble Clock",
-  "shortName": "Pebble",
+ : "id": "bebble",
+  "name": "bebble Clock",
+  "shortName": "bebble",
   "version": "0.11",
-  "description": "A pebble style clock to keep the rebellion going",
+  "description": "A bebble style clock to keep the rebellion going",
   "readme": "README.md",
-  "icon": "pebble.png",
-  "screenshots": [{"url":"pebble_screenshot.png"}],
+  "icon": "bebble.png",
+  "screenshots": [{"url":"bebble_screenshot.png"}],
   "type": "clock",
   "tags": "clock",
   "supports": ["BANGLEJS", "BANGLEJS2"],
   "allow_emulator": true,
   "storage": [
-    {"name":"pebble.app.js","url":"pebble.app.js"},
-    {"name":"pebble.settings.js","url":"pebble.settings.js"},
-    {"name":"pebble.img","url":"pebble.icon.js","evaluate":true}
+    {"name":"bebble.app.js","url":"bebble.app.js"},
+    {"name":"bebble.settings.js","url":"bebble.settings.js"},
+    {"name":"bebble.img","url":"bebble.icon.js","evaluate":true}
   ],
   "data": [
-    {"name":"pebble.settings.json"}
+    {"name":"bebble.settings.json"}
   ]
 }

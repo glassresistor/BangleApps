@@ -70,10 +70,10 @@ let draw = function() {
   let steps = Bangle.getHealthStatus("day").steps;
   const t = 6;
 
-  if (E.getBattery() < 30) {
+  if (E.getBattery() < 10) {
     // turn the warning on once we have dipped below 30%
     batteryWarning = true;
-  } else if (E.getBattery() > 40) {
+  } else if (E.getBattery() > 10) {
     // turn the warning off once we have dipped above 40%
     batteryWarning = false;
   }

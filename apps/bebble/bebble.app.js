@@ -3,25 +3,25 @@ var current = [];
 var next = [];
 
 function updateCalendar() {
+}
+
+function isActive(event) {
+  var timeActive = getTime() - event.timestamp;
+  if (event.allDay) {
+    return false;
+  }
+  return timeActive >= 0 && timeActive <= event.durationInSeconds;
+}
+
+function buzzForEvents() {
   calendar = require("Storage").readJSON("android.calendar.json",true)||[];
   calendar = calendar.filter(e => isActive(e) || getTime() <= e.timestamp);
   calendar.sort((a,b) => a.timestamp - b.timestamp);
 
   current = calendar.filter(isActive);
   next = calendar.filter(e=>!isActive(e));
-}
-
-function isActive(event) {
-  var timeActive = getTime() - event.timestamp;
-  return timeActive >= 0 && timeActive <= event.durationInSeconds;
-}
-
-function buzzForEvents() {
-  updateCalendar();
   let nextEvent = next[0]; if (!nextEvent) return;
-  // No buzz for all day events or events before 7am
-  // TODO: make this configurable
-  if (nextEvent.allDay || (new Date(nextEvent.timestamp * 1000)).getHours() < 7) return;
+  g.drawString(nextEvent.title, x + wi/2, y + wi/2 + th);
   let minToEvent = Math.round((nextEvent.timestamp - getTime()) / 60.0);
   switch (minToEvent) {
     case 10: Bangle.buzz(400, 0.1); break;
@@ -70,13 +70,7 @@ let draw = function() {
   let steps = Bangle.getHealthStatus("day").steps;
   const t = 6;
 
-  if (E.getBattery() < 10) {
-    // turn the warning on once we have dipped below 30%
-    batteryWarning = true;
-  } else if (E.getBattery() > 10) {
-    // turn the warning off once we have dipped above 40%
-    batteryWarning = false;
-  }
+  batteryWarning = E.getBattery() <= 10;
 
   g.reset();
   g.setColor(settings.bg);

@@ -2,9 +2,6 @@ var calendar = [];
 var current = [];
 var next = [];
 
-function updateCalendar() {
-}
-
 function isActive(event) {
   var timeActive = getTime() - event.timestamp;
   if (event.allDay) {
@@ -14,7 +11,6 @@ function isActive(event) {
 }
 
 function buzzForEvents() {
-  Bangle.buzz(500, 1);
   calendar = require("Storage").readJSON("android.calendar.json",true)||[];
   calendar = calendar.filter(e => isActive(e) || getTime() <= e.timestamp);
   calendar.sort((a,b) => a.timestamp - b.timestamp);
@@ -22,14 +18,12 @@ function buzzForEvents() {
   current = calendar.filter(isActive);
   next = calendar.filter(e=>!isActive(e));
   let nextEvent = next[0]; if (!nextEvent) return;
-  g.setColor('#c6f');
-  g.drawString(nextEvent.title, x + wi/2, y + wi/2 + th);
   let minToEvent = Math.round((nextEvent.timestamp - getTime()) / 60.0);
   switch (minToEvent) {
-    case 10: Bangle.buzz(400, 0.1); break;
-    case 5: Bangle.buzz(200, 0.5); break;
-    case 1: Bangle.buzz(400, 1); break;
-    case 0: Bangle.buzz(50, 1); break;
+    case 10: Bangle.buzz(4000, 0.1); break;
+    case 5: Bangle.buzz(2000, 0.5); break;
+    case 1: Bangle.buzz(4000, 1); break;
+    case 0: Bangle.buzz(500, 1); break;
   }
 }
 

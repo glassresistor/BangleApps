@@ -17,8 +17,11 @@ function buzzForEvents() {
 
   current = calendar.filter(isActive);
   next = calendar.filter(e=>!isActive(e));
+
   let nextEvent = next[0]; if (!nextEvent) return;
   let minToEvent = Math.round((nextEvent.timestamp - getTime()) / 60.0);
+    g.setColor(theme.bg);
+  g.drawString(nextEvent, 0, h3, w, h);
   switch (minToEvent) {
     case 10: Bangle.buzz(4000, 0.1); break;
     case 5: Bangle.buzz(2000, 0.5); break;

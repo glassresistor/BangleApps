@@ -2,32 +2,6 @@ var calendar = [];
 var current = [];
 var next = [];
 
-function isActive(event) {
-  var timeActive = getTime() - event.timestamp;
-  if (event.allDay) {
-    return false;
-  }
-  return timeActive >= 0 && timeActive <= event.durationInSeconds;
-}
-
-function buzzForEvents() {
-  calendar = require("Storage").readJSON("android.calendar.json",true)||[];
-  calendar = calendar.filter(e => isActive(e) || getTime() <= e.timestamp);
-  calendar.sort((a,b) => a.timestamp - b.timestamp);
-
-  current = calendar.filter(isActive);
-  next = calendar.filter(e=>!isActive(e));
-
-  let nextEvent = next[0]; if (!nextEvent) return;
-  let minToEvent = Math.round((nextEvent.timestamp - getTime()) / 60.0);
-
-  switch (minToEvent) {
-    case 10: Bangle.buzz(4000, 0.1); E.showMessage(nextEvent.title); break;
-    case 5: Bangle.buzz(1000, 0.5); break;
-    case 1: Bangle.buzz(4000, 1); break;
-    case 0: Bangle.buzz(500, 1); break;
-  }
-}
 
 Graphics.prototype.setFontLECO1976Regular42 = function(scale) {
   // Actual height 42 (41 - 0)
@@ -58,6 +32,36 @@ const h2 = 3*h/5 - 10;
 const h3 = 7*h/8;
 
 let batteryWarning = false;
+function isActive(event) {
+  var timeActive = getTime() - event.timestamp;
+  if (event.allDay) {
+    return false;
+  }
+  return timeActive >= 0 && timeActive <= event.durationInSeconds;
+}
+
+function buzzForEvents() {
+  calendar = require("Storage").readJSON("android.calendar.json",true)||[];
+  calendar = calendar.filter(e => isActive(e) || getTime() <= e.timestamp);
+  calendar.sort((a,b) => a.timestamp - b.timestamp);
+
+  current = calendar.filter(isActive);
+  next = calendar.filter(e=>!isActive(e));
+
+  let nextEvent = next[0]; if (!nextEvent) return;
+  let minToEvent = Math.round((nextEvent.timestamp - getTime()) / 60.0);
+  if (minToEvent <= 10) {
+    g.setColor(settings.fg);
+    g.drawString(0, w, h3);
+  }
+  E.showMessage(nextEvent.title);
+  switch (minToEvent) {
+    case 10: Bangle.buzz(4000, 0.1); break;
+    case 5: Bangle.buzz(1000, 0.5); break;
+    case 1: Bangle.buzz(4000, 1); break;
+    case 0: Bangle.buzz(500, 1); break;
+  }
+}
 
 let draw = function() {
   let locale = require("locale");

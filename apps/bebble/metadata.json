@@ -1,8 +1,8 @@
 {
-  "id": "bebble",
+  "id": "Bebble",
   "name": "bebble Clock",
   "shortName": "bebble",
-  "version": "0.15",
+  "version": "0.16",
   "description": "A bebble style clock to keep the rebellion going",
   "readme": "README.md",
   "icon": "bebble.png",

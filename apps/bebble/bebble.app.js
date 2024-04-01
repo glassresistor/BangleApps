@@ -52,13 +52,9 @@ function buzzForEvents() {
   let minToEvent = Math.round((nextEvent.timestamp - getTime()) / 60.0);
   if (minToEvent <= 10) {
     g.setColor(theme.day);
-    g.setFontLECO1976Regular22();
-    g.setFontAlign(0, -1);
     g.drawString(nextEvent.title, 0, h3);
   }
-  // the bottom
-  g.setColor(settings.bg);
-  g.fillRect(0, h3 + t, w, h);
+
   switch (minToEvent) {
     case 10: Bangle.buzz(4000, 0.1); break;
     case 5: Bangle.buzz(1000, 0.5); break;
@@ -106,7 +102,9 @@ let draw = function() {
   // contrast bar
   g.setColor(theme.fg);
   g.fillRect(0, h3, w, h3 + t);
-
+  // the bottom
+  g.setColor(settings.bg);
+  g.fillRect(0, h3 + t, w, h);
   g.setColor(settings.bg);
   g.drawImage(img, w/2 + ((w/2) - 64)/2, 1, { scale: 1 });
   drawCalendar(((w/2) - 42)/2, 14, 42, 4, dayOfMonth);

@@ -52,11 +52,9 @@ function buzzForEvents() {
   let minToEvent = Math.round((nextEvent.timestamp - getTime()) / 60.0);
   if (minToEvent <= 10) {
     g.setColor(theme.day);
-    g.setFontLECO1976Regular22();
-    g.setFontAlign(0, -1);
     g.drawString(nextEvent.title, 0, h3);
   }
-    // the bottom
+  // the bottom
   g.setColor(settings.bg);
   g.fillRect(0, h3 + t, w, h);
   switch (minToEvent) {

@@ -24,7 +24,7 @@ let loadSettings = function() {
 };
 
 const img = require("heatshrink").decompress(atob("oFAwkEogA/AH4A/AH4A/AH4A/AE8AAAoeXoAfeDQUBmcyD7A+Dh///8QD649CiAfaHwUvD4sEHy0DDYIfEICg+Cn4fHICY+DD4nxcgojOHwgfEIAYfRCIQaDD4ZAFD5r7DH4//kAfRCIZ/GAAnwD5p9DX44fTHgYSBf4ofVDAQEBl4fFUAgfOXoQzBgIfFBAIfPP4RAEAoYAB+cRiK/SG4h/WIBAfXIA7CBAAswD55AHn6fUIBMCD65AHl4gCmcziAfQQJqfQQJpiDgk0IDXxQLRAEECaBM+QgRYRYgUIA0CD4ggSQJiDCiAKBICszAAswD55AHABKBVD7BAFABIqBD5pAFABPxD55AOD6BADiIAJQAyxLABwf/gaAPAH4A/AH4ARA=="));
-
+const t = 6;
 const h = g.getHeight();
 const w = g.getWidth();
 const ha = 2*h/5 - 4;
@@ -52,6 +52,8 @@ function buzzForEvents() {
   let minToEvent = Math.round((nextEvent.timestamp - getTime()) / 60.0);
   if (minToEvent <= 10) {
     g.setColor(theme.day);
+    g.setFontLECO1976Regular22();
+    g.setFontAlign(0, -1);
     g.drawString(nextEvent.title, 0, h3);
   }
   // the bottom
@@ -72,7 +74,7 @@ let draw = function() {
   let dayOfMonth = date.getDate();
   let time = locale.time(date, 1);
   let steps = Bangle.getHealthStatus("day").steps;
-  const t = 6;
+
 
   batteryWarning = E.getBattery() <= 10;
 

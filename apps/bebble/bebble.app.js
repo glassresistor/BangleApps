@@ -51,8 +51,8 @@ function buzzForEvents() {
   let nextEvent = next[0]; if (!nextEvent) return;
   let minToEvent = Math.round((nextEvent.timestamp - getTime()) / 60.0);
   if (minToEvent <= 10) {
-    g.setColor(settings.fg);
-    g.drawString(nextEvent, w, h3);
+    g.setColor(settings.bg);
+    g.drawString(nextEvent, 0, h3);
   }
   switch (minToEvent) {
     case 10: Bangle.buzz(4000, 0.1); break;

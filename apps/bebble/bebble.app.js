@@ -183,4 +183,3 @@ require("widget_utils").swipeOn(); // hide widgets, make them visible with a swi
 loadSettings();
 loadThemeColors();
 draw();
-

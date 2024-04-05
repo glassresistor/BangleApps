@@ -105,7 +105,12 @@ let draw = function() {
   // the bottom
   g.setColor(settings.bg);
   g.fillRect(0, h3 + t, w, h);
+  
   buzzForEvents();
+  g.setFontLECO1976Regular22();
+  g.setFontAlign(0, -1);
+  g.setColor(theme.day);
+  g.drawString("nextEvent.title", 0, h3+t);
 
   g.setColor(settings.bg);
   g.drawImage(img, w/2 + ((w/2) - 64)/2, 1, { scale: 1 });

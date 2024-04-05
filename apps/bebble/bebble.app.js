@@ -52,7 +52,7 @@ function buzzForEvents() {
   let minToEvent = Math.round((nextEvent.timestamp - getTime()) / 60.0);
   //if (minToEvent <= 10) {
     g.setFontLECO1976Regular22();
-    g.setFontAlign(0, -1);
+    g.setFontAlign(0, 0);
     g.setColor(theme.day);
     g.drawString("nextEvent.title", 0, h3 + t);
   //}

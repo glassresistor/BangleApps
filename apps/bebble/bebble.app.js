@@ -50,12 +50,6 @@ function buzzForEvents() {
 
   let nextEvent = next[0]; if (!nextEvent) return;
   let minToEvent = Math.round((nextEvent.timestamp - getTime()) / 60.0);
-  //if (minToEvent <= 10) {
-    g.setFontLECO1976Regular22();
-    g.setFontAlign(0, -1);
-    g.setColor(theme.day);
-    g.drawString("nextEvent.title", 0, 0);
-  //}
 
   switch (minToEvent) {
     case 5: Bangle.buzz(4000, .5); break;
@@ -103,8 +97,8 @@ let draw = function() {
   g.setColor(theme.fg);
   g.fillRect(0, h3, w, h3 + t);
   // the bottom
-  g.setColor(settings.bg);
-  g.fillRect(0, h3 + t, w, h);
+  //g.setColor(settings.bg);
+  //g.fillRect(0, h3 + t, w, h);
   
   buzzForEvents();
   g.setFontLECO1976Regular22();

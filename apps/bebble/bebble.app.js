@@ -111,11 +111,7 @@ let draw = function() {
   drawCalendar(((w/2) - 42)/2, 14, 42, 4, dayOfMonth);
 
   if (eventTitle !== null) {
-    Bangle.setLCDOffset(24);
-    // the bottom
-    g.setColor(settings.bg);
-    g.fillRect(0, h - 24, w, h);
-    g.setFontAlign(1,-1).setFont("Vector",18);
+    g.setFontAlign(1,-1).setFont("Vector",20);
     g.setColor(theme.day);
     g.drawString('upcoming event', 0, h3+t);
   }

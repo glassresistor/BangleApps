@@ -40,6 +40,7 @@ function isActive(event) {
   return timeActive >= 0 && timeActive <= event.durationInSeconds;
 }
 
+let dismissed_ids = []
 function buzzForEvents() {
   calendar = require("Storage").readJSON("android.calendar.json",true)||[];
   calendar = calendar.filter(e => isActive(e) || getTime() <= e.timestamp);
@@ -50,7 +51,17 @@ function buzzForEvents() {
 
   let nextEvent = next[0]; if (!nextEvent) return;
   let minToEvent = Math.round((nextEvent.timestamp - getTime()) / 60.0);
-
+  if (minToEvent <= 5 && !dismissed_ids.includes(nextEvent.id)) {
+    E.showPrompt(nextEvent.title ,{
+      title:"new event",
+      buttons : {"Dismiss": true }
+    }).then(function(v) {
+      if (v) {
+        dismissed_ids.append(nextEvent.title);
+      }
+      E.showPrompt();
+    });
+  }
   switch (minToEvent) {
     case 5: Bangle.buzz(4000, .5); break;
     case 0: Bangle.buzz(4000, 1); break;
@@ -97,9 +108,9 @@ let draw = function() {
   g.setColor(theme.fg);
   g.fillRect(0, h3, w, h3 + t);
   // the bottom
-  //g.setColor(settings.bg);
-  //g.fillRect(0, h3 + t, w, h);
-  
+  g.setColor(settings.bg);
+  g.fillRect(0, h3 + t, w, h);
+
   buzzForEvents();
   g.setFontLECO1976Regular22();
   g.setFontAlign(0, -1);

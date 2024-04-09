@@ -112,7 +112,7 @@ let draw = function() {
   if (eventTitle !== null) {
     g.setFontAlign(0,0).setFont("Vector",24);
     g.setColor(theme.day);
-    g.drawString(eventTitle, 0, h3+t);
+    g.drawString('upcoming event', 0, h3+t);
   }
 
 

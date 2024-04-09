@@ -59,7 +59,7 @@ function buzzForEvents() {
       if (v) {
         dismissed_ids.append(nextEvent.title);
       }
-      E.showPrompt();
+      draw();
     });
   }
   switch (minToEvent) {

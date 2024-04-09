@@ -110,8 +110,8 @@ let draw = function() {
   g.drawImage(img, w/2 + ((w/2) - 64)/2, 1, { scale: 1 });
   drawCalendar(((w/2) - 42)/2, 14, 42, 4, dayOfMonth);
 
-  if (eventTitle !== null) {
-    g.setFontAlign(1,-1).setFont("Vector",20);
+  if (true) {
+    g.setFontAlign(0,-1).setFont("Vector",20);
     g.setColor(theme.day);
     g.drawString('upcoming event', 0, h3+t);
   }

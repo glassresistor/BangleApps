@@ -48,14 +48,16 @@ function buzzForEvents() {
   current = calendar.filter(isActive);
   next = calendar.filter(e=>!isActive(e));
 
-  let nextEvent = next[0]; if (!nextEvent) return;
+  let nextEvent = next[0]; if (!nextEvent) return null;
   let minToEvent = Math.round((nextEvent.timestamp - getTime()) / 60.0);
-  if (minToEvent <= 5 && !dismissed_ids.includes(nextEvent.id)) {
-    return minToEvent.title;
-  }
   switch (minToEvent) {
     case 5: Bangle.buzz(4000, .5); break;
     case 0: Bangle.buzz(4000, 1); break;
+  }
+  if (minToEvent <= 5 && !dismissed_ids.includes(nextEvent.id)) {
+    return minToEvent.title;
+  } else {
+    return null;
   }
 }
 
@@ -103,10 +105,11 @@ let draw = function() {
   g.fillRect(0, h3 + t, w, h);
 
   let eventTitle = buzzForEvents();
+
   if (eventTitle !== null) {
-  g.setFontAlign(0,0).setFont("Vector",24);
-  g.setColor("#f00");
-  g.drawString(eventTitle, 0, h3+t);
+    g.setFontAlign(0,0).setFont("Vector",24);
+    g.setColor("#f00");
+    g.drawString(eventTitle, 0, h3+t);
   }
 
   g.setColor(settings.bg);

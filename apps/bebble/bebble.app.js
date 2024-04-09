@@ -105,6 +105,9 @@ let draw = function() {
   g.fillRect(0, h3 + t, w, h);
 
   let eventTitle = buzzForEvents();
+  g.setColor(settings.bg);
+  g.drawImage(img, w/2 + ((w/2) - 64)/2, 1, { scale: 1 });
+  drawCalendar(((w/2) - 42)/2, 14, 42, 4, dayOfMonth);
 
   if (eventTitle !== null) {
     g.setFontAlign(0,0).setFont("Vector",24);
@@ -112,9 +115,6 @@ let draw = function() {
     g.drawString(eventTitle, 0, h3+t);
   }
 
-  g.setColor(settings.bg);
-  g.drawImage(img, w/2 + ((w/2) - 64)/2, 1, { scale: 1 });
-  drawCalendar(((w/2) - 42)/2, 14, 42, 4, dayOfMonth);
 
   drawLock();
   // queue next draw

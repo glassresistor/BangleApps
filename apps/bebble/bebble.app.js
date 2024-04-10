@@ -59,15 +59,23 @@ function buzzForEvents() {
     case 5: Bangle.buzz(4000, .5); break;
     case 0: Bangle.buzz(4000, 1); break;
   }
-  if (minToEvent <= 30) {
+  if (minToEvent <= 5) {
     return nextEvent.title;
   } else {
     return null;
   }
 }
 
+let locale = require("locale");
+
 let draw = function() {
-  let locale = require("locale");
+  // queue next draw
+  if (drawTimeout) clearTimeout(drawTimeout);
+  drawTimeout = setTimeout(function() {
+    drawTimeout = undefined;
+    draw();
+  }, 60000 - (Date.now() % 60000));
+
   let date = new Date();
   let dayOfWeek = locale.dow(date, 1).toUpperCase();
   let dayOfMonth = date.getDate();
@@ -129,12 +137,6 @@ let draw = function() {
   }
 
   drawLock();
-  // queue next draw
-  if (drawTimeout) clearTimeout(drawTimeout);
-  drawTimeout = setTimeout(function() {
-    drawTimeout = undefined;
-    draw();
-  }, 60000 - (Date.now() % 60000));
 };
 
 // at x,y width:wi thicknes:th

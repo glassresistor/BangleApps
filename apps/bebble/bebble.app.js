@@ -88,10 +88,10 @@ let draw = function() {
   // day and steps
   g.setColor(theme.day);
   g.setFontLECO1976Regular22();
-  g.setFontAlign(0, 0);
-  g.drawString(dayOfWeek, w/4 - 10, ha);
+  g.setFontAlign(0, -1);
+  g.drawString(dayOfWeek, w/4 - 15, ha);
   g.drawString(steps, w/2, ha);
-  g.drawString(E.getBattery(), 3*w/4, ha);
+  g.drawString(E.getBattery(), 3*w/4 + 15, ha);
 
   // time
   // white on red for battery warning
@@ -101,7 +101,7 @@ let draw = function() {
   g.setFontRighteousRegular();
   g.setFontAlign(0, -1);
   g.setColor(settings.bg);
-  g.drawString(time, w/2, h2 - 5);
+  g.drawString(time, w/2, h2 - 1);
 
   // contrast bar
   g.setColor(theme.fg);
@@ -112,8 +112,8 @@ let draw = function() {
 
 
   g.setColor(settings.bg);
-  g.drawImage(img, w/2 - 20 , 1, { scale: 0.8 });
-  drawCalendar(10, 7, 42, 4, dayOfMonth);
+  g.drawImage(img, w/2 - 24 , 1, { scale: 0.8 });
+  drawCalendar(8, 7, 42, 4, dayOfMonth);
 
   if (eventTitle !== null) {
     g.setFontAlign(-1,-1).setFont("Vector",20);

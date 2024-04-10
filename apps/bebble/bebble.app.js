@@ -31,7 +31,7 @@ const img = require("heatshrink").decompress(atob("oFAwkEogA/AH4A/AH4A/AH4A/AE8A
 const t = 2;
 const h = g.getHeight();
 const w = g.getWidth();
-const ha = 2*h/5 - 15;
+const ha = 2*h/5 - 20;
 const h2 = 3*h/5 - 24;
 const h3 = 7*h/8 - 13;
 

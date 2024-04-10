@@ -88,7 +88,7 @@ let draw = function() {
   // day and steps
   g.setColor(theme.day);
   g.setFontLECO1976Regular22();
-  g.setFontAlign(0, -1);
+  g.setFontAlign(0, 0);
   g.drawString(dayOfWeek, w/4 - 10, ha);
   g.drawString(steps, w/2, ha);
   g.drawString(E.getBattery(), 3*w/4, ha);

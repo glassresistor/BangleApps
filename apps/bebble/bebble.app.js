@@ -95,7 +95,7 @@ let draw = function() {
   g.drawString(E.getBattery(), 3*w/4 + 15, ha);
 
   g.setFontAlign(1, -1, 90);
-  g.drawString(month, 54, 7)
+  g.drawString(month, 50, 7)
   // time
   // white on red for battery warning
   g.setColor(theme.bg);
@@ -115,7 +115,7 @@ let draw = function() {
 
 
   g.setColor(settings.bg);
-  drawCalendar(8, 7, 42, 4, dayOfMonth);
+  drawCalendar(5, 7, 42, 4, dayOfMonth);
   g.drawImage(img, w/2 - 12 , 1, { scale: 0.8 });
   drawBattery(w-48, 14, 38, 17);
 

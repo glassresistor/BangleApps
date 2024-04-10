@@ -31,7 +31,7 @@ const img = require("heatshrink").decompress(atob("oFAwkEogA/AH4A/AH4A/AH4A/AE8A
 const t = 2;
 const h = g.getHeight();
 const w = g.getWidth();
-const ha = 2*h/5 - 4;
+const ha = 2*h/5 - 10;
 const h2 = 3*h/5 - 24;
 const h3 = 7*h/8 - 13;
 
@@ -120,7 +120,8 @@ let draw = function() {
   drawBattery(w-48, 14, 38, 17);
 
   if (eventTitle !== null) {
-    g.setFontAlign(-1,-1).setFont("Vector",20);
+    g.setFontAlign(-1,-1);
+    g.setFontLECO1976Regular22();
     g.setColor(theme.day);
     g.drawString(eventTitle, 0, h3+t);
   }

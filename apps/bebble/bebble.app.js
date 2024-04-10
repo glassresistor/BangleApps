@@ -99,7 +99,7 @@ let draw = function() {
   g.fillRect(0, h2, w, h3);
 
   g.setFontRighteousRegular();
-  g.setFontAlign(0, -1);
+  g.setFontAlign(0, 0);
   g.setColor(!batteryWarning ? settings.bg : '#fff');
   g.drawString(time, w/2, h2 + 8);
 
@@ -113,13 +113,13 @@ let draw = function() {
 
   g.setColor(settings.bg);
   g.drawImage(img, w/2 + ((w/2) - 64)/2, 1, { scale: 1 });
+  drawCalendar(((w/2) - 42)/2, 14, 42, 4, dayOfMonth);
 
   if (eventTitle !== null) {
     g.setFontAlign(-1,-1).setFont("Vector",20);
     g.setColor(theme.day);
     g.drawString(eventTitle, 0, h3+t);
   }
-
 
   drawLock();
   // queue next draw

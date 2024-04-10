@@ -120,8 +120,9 @@ let draw = function() {
   drawBattery(w-48, 14, 38, 17);
 
   if (eventTitle !== null) {
-    g.setFontAlign(-1,-1);
-    g.setFontLECO1976Regular22();
+    g.setFontAlign(-1,-1).setFont("Vector",20);
+    //g.setFontAlign(-1,-1);
+    //g.setFontLECO1976Regular22();
     g.setColor(theme.day);
     g.drawString(eventTitle, 0, h3+t);
   }

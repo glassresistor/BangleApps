@@ -73,6 +73,11 @@ let draw = function() {
   batteryWarning = E.getBattery() <= 10;
 
   g.reset();
+
+  var eventTitle = buzzForEvents();
+  if (eventTitle !== null) {
+    Bangle.setLCDOffset(-200);
+  }
   g.setColor(settings.bg);
   g.fillRect(0, 0, w, h2 - t);
 
@@ -104,7 +109,6 @@ let draw = function() {
   g.setColor(settings.bg);
   g.fillRect(0, h3 + t, w, h);
 
-  var eventTitle = buzzForEvents();
 
   g.setColor(settings.bg);
   g.drawImage(img, w/2 + ((w/2) - 64)/2, 1, { scale: 1 });

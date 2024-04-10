@@ -94,7 +94,7 @@ let draw = function() {
   g.drawString(steps, w/2 + 8, ha);
   g.drawString(E.getBattery(), 3*w/4 + 15, ha);
 
-  g.setFontAlign(-1, -1, 90);
+  g.setFontAlign(1, -1, 90);
   g.drawString(month, 54, 7)
   // time
   // white on red for battery warning

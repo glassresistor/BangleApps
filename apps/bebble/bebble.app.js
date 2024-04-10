@@ -94,7 +94,7 @@ let draw = function() {
 
   g.setFontLECO1976Regular42();
   g.setFontAlign(0, -1);
-  g.setColor(!batteryWarning ? theme.fg : '#fff');
+  g.setColor(!batteryWarning ? settings.bg : '#fff');
   g.drawString(time, w/2, h2 + 8);
 
   // contrast bar

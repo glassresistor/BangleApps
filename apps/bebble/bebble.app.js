@@ -99,9 +99,9 @@ let draw = function() {
   g.fillRect(0, h2, w, h3);
 
   g.setFontRighteousRegular();
-  g.setFontAlign(0, 0);
+  g.setFontAlign(0, -1);
   g.setColor(!batteryWarning ? settings.bg : '#fff');
-  g.drawString(time, w/2, h2 + 8);
+  g.drawString(time, w/2, h2 + 2);
 
   // contrast bar
   g.setColor(theme.fg);

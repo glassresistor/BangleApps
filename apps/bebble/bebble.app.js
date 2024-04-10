@@ -32,8 +32,8 @@ const t = 2;
 const h = g.getHeight();
 const w = g.getWidth();
 const ha = 2*h/5 - 12;
-const h2 = 3*h/5 - 20;
-const h3 = 7*h/8 - 9;
+const h2 = 3*h/5 - 22;
+const h3 = 7*h/8 - 11;
 
 let batteryWarning = false;
 function isActive(event) {
@@ -74,7 +74,6 @@ let draw = function() {
   let steps = Bangle.getHealthStatus("day").steps;
 
 
-  batteryWarning = E.getBattery() <= 10;
 
   g.reset();
 
@@ -90,18 +89,19 @@ let draw = function() {
   g.setColor(theme.day);
   g.setFontLECO1976Regular22();
   g.setFontAlign(0, -1);
-  g.drawString(dayOfWeek, w/4 - 5, ha);
+  g.drawString(dayOfWeek, w/4 - 10, ha);
   g.drawString(steps, w/2, ha);
+  g.drawString(E.getBattery(), 3*w/4, ha);
 
   // time
   // white on red for battery warning
-  g.setColor(!batteryWarning ? theme.bg : '#f00');
+  g.setColor(theme.bg);
   g.fillRect(0, h2, w, h3);
 
   g.setFontRighteousRegular();
   g.setFontAlign(0, -1);
-  g.setColor(!batteryWarning ? settings.bg : '#fff');
-  g.drawString(time, w/2, h2 - 2);
+  g.setColor(settings.bg);
+  g.drawString(time, w/2, h2 - 3);
 
   // contrast bar
   g.setColor(theme.fg);

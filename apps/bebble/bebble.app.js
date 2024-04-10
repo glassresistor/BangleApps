@@ -114,7 +114,7 @@ let draw = function() {
   g.setColor(settings.bg);
   drawCalendar(8, 7, 42, 4, dayOfMonth);
   g.drawImage(img, w/2 - 24 , 1, { scale: 0.8 });
-  drawBattery(w-58, 7, 42;
+  drawBattery(w-58, 7, 38, 17);
 
   if (eventTitle !== null) {
     g.setFontAlign(-1,-1).setFont("Vector",20);

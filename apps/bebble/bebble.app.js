@@ -70,7 +70,7 @@ let draw = function() {
   let date = new Date();
   let dayOfWeek = locale.dow(date, 1).toUpperCase();
   let dayOfMonth = date.getDate();
-  let month = date.toLocaleString('default', { month: 'short' }).toUpperCase();
+  let month = locale.month(date, 1).toUpperCase();
   let time = locale.time(date, 1);
   let steps = Bangle.getHealthStatus("day").steps;
 

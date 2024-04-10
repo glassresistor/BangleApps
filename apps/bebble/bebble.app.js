@@ -125,7 +125,7 @@ let draw = function() {
     //g.setFontAlign(-1,-1);
     //g.setFontLECO1976Regular22();
     g.setColor(theme.day);
-    g.drawString(eventTitle, 0, h3+t);
+    g.drawString(g.wrapString(eventTitle, w).join("\n"), 0, h3+t);
   }
 
   drawLock();

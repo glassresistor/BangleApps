@@ -101,7 +101,7 @@ let draw = function() {
   g.setFontRighteousRegular();
   g.setFontAlign(0, -1);
   g.setColor(settings.bg);
-  g.drawString(time, w/2, h2 - 3);
+  g.drawString(time, w/2, h2 - 5);
 
   // contrast bar
   g.setColor(theme.fg);

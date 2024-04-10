@@ -112,8 +112,9 @@ let draw = function() {
 
 
   g.setColor(settings.bg);
-  g.drawImage(img, w/2 - 24 , 1, { scale: 0.8 });
   drawCalendar(8, 7, 42, 4, dayOfMonth);
+  g.drawImage(img, w/2 - 24 , 1, { scale: 0.8 });
+  drawBattery(w-58, 7, 42;
 
   if (eventTitle !== null) {
     g.setFontAlign(-1,-1).setFont("Vector",20);
@@ -162,6 +163,25 @@ let loadThemeColors = function() {
   if (settings.color == 'Blue' || settings.color == 'Red')
     theme.day = g.toColor(1,1,1); // white on blue or red best contrast
 };
+
+let drawBattery=function(x,y,wi,hi) {
+  g.reset();
+  g.setColor(g.theme.fg);
+  g.fillRect(x,y+2,x+wi-4,y+2+hi); // outer
+  g.clearRect(x+2,y+2+2,x+wi-4-2,y+2+hi-2); // centre
+  g.setColor(g.theme.fg);
+  g.fillRect(x+wi-3,y+2+(((hi - 1)/2)-1),x+wi-2,y+2+(((hi - 1)/2)-1)+4); // contact
+  g.fillRect(x+3, y+5, x +3 + E.getBattery()*(wi-10)/100, y+hi-1); // the level
+
+  log_debug("Charging "+Bangle.isCharging());
+  if( Bangle.isCharging() )
+  {
+    g.setBgColor(settings.bg);
+    const image = require("heatshrink").decompress(atob("j8OwMB/4AD94DC44DCwP//n/gH//EOgE/+AdBh/gAYMH4EAvkDAYP/+/AFAX+FgfzGAnAA=="));
+    g.drawImage(image,x+3,y+4);
+  }
+
+}
 
 let drawLock = function(){
   if (settings.showlock) {

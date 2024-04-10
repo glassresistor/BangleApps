@@ -90,7 +90,7 @@ let draw = function() {
   g.setFontLECO1976Regular22();
   g.setFontAlign(0, -1);
   g.drawString(dayOfWeek, w/4 - 15, ha);
-  g.drawString(steps, w/2, ha);
+  g.drawString(steps, w/2 + 4, ha);
   g.drawString(E.getBattery(), 3*w/4 + 15, ha);
 
   // time
@@ -113,8 +113,8 @@ let draw = function() {
 
   g.setColor(settings.bg);
   drawCalendar(8, 7, 42, 4, dayOfMonth);
-  g.drawImage(img, w/2 - 24 , 1, { scale: 0.8 });
-  drawBattery(w-58, 7, 38, 17);
+  g.drawImage(img, w/2 - 18 , 1, { scale: 0.8 });
+  drawBattery(w-48, 14, 38, 17);
 
   if (eventTitle !== null) {
     g.setFontAlign(-1,-1).setFont("Vector",20);
@@ -173,7 +173,6 @@ let drawBattery=function(x,y,wi,hi) {
   g.fillRect(x+wi-3,y+2+(((hi - 1)/2)-1),x+wi-2,y+2+(((hi - 1)/2)-1)+4); // contact
   g.fillRect(x+3, y+5, x +3 + E.getBattery()*(wi-10)/100, y+hi-1); // the level
 
-  log_debug("Charging "+Bangle.isCharging());
   if( Bangle.isCharging() )
   {
     g.setBgColor(settings.bg);

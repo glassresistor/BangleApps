@@ -91,7 +91,7 @@ let draw = function() {
   g.setFontLECO1976Regular22();
   g.setFontAlign(0, -1);
   g.drawString(dayOfWeek, w/4, ha);
-  g.drawString(steps, 3*w/4, ha);
+  g.drawString(steps, w/2, ha);
 
   // time
   // white on red for battery warning

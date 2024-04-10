@@ -32,8 +32,8 @@ const t = 2;
 const h = g.getHeight();
 const w = g.getWidth();
 const ha = 2*h/5 - 12;
-const h2 = 3*h/5 - 19;
-const h3 = 7*h/8 - 8;
+const h2 = 3*h/5 - 20;
+const h3 = 7*h/8 - 9;
 
 let batteryWarning = false;
 function isActive(event) {
@@ -90,7 +90,7 @@ let draw = function() {
   g.setColor(theme.day);
   g.setFontLECO1976Regular22();
   g.setFontAlign(0, -1);
-  g.drawString(dayOfWeek, w/4, ha);
+  g.drawString(dayOfWeek, w/4 - 5, ha);
   g.drawString(steps, w/2, ha);
 
   // time
@@ -112,7 +112,7 @@ let draw = function() {
 
 
   g.setColor(settings.bg);
-  g.drawImage(img, w/2 , 1, { scale: 0.8 });
+  g.drawImage(img, w/2 - 20 , 1, { scale: 0.8 });
   drawCalendar(10, 7, 42, 4, dayOfMonth);
 
   if (eventTitle !== null) {

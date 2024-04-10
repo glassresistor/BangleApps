@@ -112,7 +112,7 @@ let draw = function() {
 
 
   g.setColor(settings.bg);
-  g.drawImage(img, w/2, 1, { scale: 0.8 });
+  g.drawImage(img, w/2 + ((w/2) - 32)/2, 1, { scale: 0.8 });
   drawCalendar(((w/2) - 42)/2, 7, 42, 4, dayOfMonth);
 
   if (eventTitle !== null) {

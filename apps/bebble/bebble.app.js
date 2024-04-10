@@ -55,7 +55,7 @@ function buzzForEvents() {
     case 0: Bangle.buzz(4000, 1); break;
   }
   if (minToEvent <= 30) {
-    return minToEvent.title;
+    return nextEvent.title;
   } else {
     return null;
   }

@@ -70,6 +70,7 @@ let draw = function() {
   let date = new Date();
   let dayOfWeek = locale.dow(date, 1).toUpperCase();
   let dayOfMonth = date.getDate();
+  let month = date.toLocaleString('default', { month: 'short' }).toUpperCase();
   let time = locale.time(date, 1);
   let steps = Bangle.getHealthStatus("day").steps;
 
@@ -90,9 +91,11 @@ let draw = function() {
   g.setFontLECO1976Regular22();
   g.setFontAlign(0, -1);
   g.drawString(dayOfWeek, w/4 - 15, ha);
-  g.drawString(steps, w/2 + 4, ha);
+  g.drawString(steps, w/2 + 8, ha);
   g.drawString(E.getBattery(), 3*w/4 + 15, ha);
 
+  g.setFontAlign(0, -1, 90);
+  g.drawString(month, 54, 7)
   // time
   // white on red for battery warning
   g.setColor(theme.bg);
@@ -113,7 +116,7 @@ let draw = function() {
 
   g.setColor(settings.bg);
   drawCalendar(8, 7, 42, 4, dayOfMonth);
-  g.drawImage(img, w/2 - 18 , 1, { scale: 0.8 });
+  g.drawImage(img, w/2 - 12 , 1, { scale: 0.8 });
   drawBattery(w-48, 14, 38, 17);
 
   if (eventTitle !== null) {

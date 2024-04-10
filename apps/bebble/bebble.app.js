@@ -114,7 +114,7 @@ let draw = function() {
     Bangle.setLCDOffset(100);
     g.setFontAlign(-1,-1).setFont("Vector",20);
     g.setColor(theme.day);
-    g.drawString('upcoming event', 0, h3+t);
+    g.drawString(eventTitle, 0, h3+t);
   }
 
 

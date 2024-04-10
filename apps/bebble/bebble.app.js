@@ -31,9 +31,9 @@ const img = require("heatshrink").decompress(atob("oFAwkEogA/AH4A/AH4A/AH4A/AE8A
 const t = 2;
 const h = g.getHeight();
 const w = g.getWidth();
-const ha = 2*h/5 - 12;
-const h2 = 3*h/5 - 22;
-const h3 = 7*h/8 - 11;
+const ha = 2*h/5 - 4;
+const h2 = 3*h/5 - 24;
+const h3 = 7*h/8 - 13;
 
 let batteryWarning = false;
 function isActive(event) {
@@ -115,8 +115,8 @@ let draw = function() {
 
 
   g.setColor(settings.bg);
-  drawCalendar(5, 7, 42, 4, dayOfMonth);
-  g.drawImage(img, w/2 - 12 , 1, { scale: 0.8 });
+  drawCalendar(5, 7, 38, 4, dayOfMonth);
+  g.drawImage(img, w/2 - 16 , 1, { scale: 0.8 });
   drawBattery(w-48, 14, 38, 17);
 
   if (eventTitle !== null) {

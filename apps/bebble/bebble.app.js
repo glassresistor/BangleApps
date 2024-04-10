@@ -90,7 +90,7 @@ let draw = function() {
   g.setColor(theme.day);
   g.setFontLECO1976Regular22();
   g.setFontAlign(0, -1);
-  g.drawString(dayOfWeek, w/4, ha);
+  g.drawString(dayOfWeek, w/4 - 4, ha);
   g.drawString(steps, w/2, ha);
 
   // time
@@ -113,7 +113,7 @@ let draw = function() {
 
   g.setColor(settings.bg);
   g.drawImage(img, w/2 + ((w/2) - 32)/2, 1, { scale: 0.8 });
-  drawCalendar(((w/2) - 42)/2, 7, 42, 4, dayOfMonth);
+  drawCalendar(((w/2) - 22)/2, 7, 42, 4, dayOfMonth);
 
   if (eventTitle !== null) {
     g.setFontAlign(-1,-1).setFont("Vector",20);

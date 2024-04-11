@@ -51,7 +51,7 @@ function buzzForEvents() {
   calendar.sort((a,b) => a.timestamp - b.timestamp);
 
   current = calendar.filter(isActive);
-  next = calendar.filter(e=>!isActive(e));
+  next = current + calendar.filter(e=>!isActive(e));
 
   let nextEvent = next[0]; if (!nextEvent) return null;
   let minToEvent = Math.round((nextEvent.timestamp - getTime()) / 60.0);
@@ -99,12 +99,12 @@ let draw = function() {
   g.setColor(theme.day);
   g.setFontLECO1976Regular22();
   g.setFontAlign(0, -1);
-  g.drawString(dayOfWeek, w/4 - 15, ha);
+  g.drawString(dayOfWeek, w/4 - 20, ha);
   g.drawString(steps, w/2 + 8, ha);
   g.drawString(E.getBattery(), 3*w/4 + 15, ha);
 
   g.setFontAlign(1, -1, 90);
-  g.drawString(month, 50, 7)
+  g.drawString(month, 45, 7)
   // time
   // white on red for battery warning
   g.setColor(theme.bg);

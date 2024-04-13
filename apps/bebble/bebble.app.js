@@ -139,7 +139,7 @@ let draw = function() {
   } else {
     let current = weather.get();
     const temp = locale.temp(current.temp-273.15).match(/^(\D*\d*)(.*)$/);
-    g.drawString(temp[1], w-8)+ temp, 4, h3+t);
+    g.drawString(temp[1]+temp[2], 4, h3+t);
   }
 
   drawLock();

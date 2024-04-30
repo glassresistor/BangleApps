@@ -58,8 +58,8 @@ function buzzForEvents() {
   let nextEvent = next[0]; if (!nextEvent) return null;
   let minToEvent = Math.round((nextEvent.timestamp - getTime()) / 60.0);
   switch (minToEvent) {
-    case 5: Bangle.buzz(4000, .5); break;
-    case 1: Bangle.buzz(4000, 1); break;
+    case 5: Bangle.buzz(2000, .4);Bangle.buzz(500, .5); break;
+    case 1: Bangle.buzz(500, 1); Bangle.buzz(500, .5); break;
   }
   if (minToEvent <= 5) {
     return nextEvent.title;
@@ -82,7 +82,7 @@ let draw = function() {
   let dayOfWeek = locale.dow(date, 1).toUpperCase();
   let dayOfMonth = date.getDate();
   let month = locale.month(date, 1).toUpperCase();
-  let time = locale.time(date, 1);
+  let time = locale.time(date, 1).replace(':','');
   let steps = Bangle.getHealthStatus("day").steps;
 
 

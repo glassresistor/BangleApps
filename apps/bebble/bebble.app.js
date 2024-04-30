@@ -82,7 +82,7 @@ let draw = function() {
   let dayOfWeek = locale.dow(date, 1).toUpperCase();
   let dayOfMonth = date.getDate();
   let month = locale.month(date, 1).toUpperCase();
-  let time = locale.time(date, 1).replace(':',' ');
+  let time = locale.time(date, 1).replace(':','  ');
   let steps = Bangle.getHealthStatus("day").steps;
 
 
@@ -135,6 +135,7 @@ let draw = function() {
   //g.setFontLECO1976Regular22();
   g.setColor(theme.day);
   let current = weather.get();
+  console.log(current.stringify);
   if (eventTitle !== null) {
     g.drawString(g.wrapString(eventTitle, w-8).join("\n"), 4, h3+t);
   } else {

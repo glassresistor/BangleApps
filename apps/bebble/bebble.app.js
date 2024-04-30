@@ -134,10 +134,12 @@ let draw = function() {
   //g.setFontAlign(-1,-1);
   //g.setFontLECO1976Regular22();
   g.setColor(theme.day);
+  let current = weather.get();
+  console.log(current);
+  console.log(weather);
   if (eventTitle !== null) {
     g.drawString(g.wrapString(eventTitle, w-8).join("\n"), 4, h3+t);
   } else {
-    let current = weather.get();
     const temp = locale.temp(current.temp-273.15).match(/^(\D*\d*)(.*)$/);
     g.drawString(temp[1]+temp[2], 4, h3+t);
   }

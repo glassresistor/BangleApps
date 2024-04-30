@@ -126,7 +126,7 @@ let draw = function() {
   g.setFontcontainyourselffs();
   g.setFontAlign(0, -1);
   g.setColor(theme.bg);
-  g.drawString(time, w/2, h2 - 51);
+  g.drawString(time, w/2, h2 - 50);
 
   // contrast bar
   g.setColor(theme.fg);

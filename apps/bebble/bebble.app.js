@@ -120,12 +120,12 @@ let draw = function() {
   g.drawString(month, 45, 7)
   // time
   // white on red for battery warning
-  g.setColor(theme.bg);
+  g.setColor(settings.bg);
   g.fillRect(0, h2, w, h3);
 
   g.setFontcontainyourselffs();
   g.setFontAlign(0, -1);
-  g.setColor(settings.bg);
+  g.setColor(theme.bg);
   g.drawString(time, w/2, h2 - 51);
 
   // contrast bar

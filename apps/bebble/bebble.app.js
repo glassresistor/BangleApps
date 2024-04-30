@@ -10,7 +10,7 @@ Graphics.prototype.setFontRighteousRegular = function() {
     atob("EiItFigpLCkrJCsrEw=="),
     70|65536
   );
-
+}
 
 Graphics.prototype.setFontcontainyourselffs = function() {
   // Actual height 43 (74 - 32)
@@ -20,7 +20,7 @@ Graphics.prototype.setFontcontainyourselffs = function() {
     25,
     85|65536
   );
-}}
+}
 
 Graphics.prototype.setFontLECO1976Regular22 = function(scale) {
   // Actual height 22 (21 - 0)

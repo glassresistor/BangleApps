@@ -1,4 +1,4 @@
-# Pebble
+# Bebble
 
 *A Pebble style clock with configurable background color, to keep the revolution going*
 

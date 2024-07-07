@@ -1,5 +1,4 @@
 var calendar = [];
-var current = [];
 var next = [];
 
 Graphics.prototype.setFontRighteousRegular = function() {
@@ -36,7 +35,6 @@ const ha = 2*h/5 - shift_up;
 const h2 = 3*h/5 - 11 - shift_up;
 const h3 = 7*h/8 - shift_up;
 
-let batteryWarning = false;
 function isActive(event) {
   var timeActive = getTime() - event.timestamp;
   if (event.allDay) {

@@ -1,6 +1,6 @@
 var calendar = [];
 var next = [];
-
+var current = [];
 Graphics.prototype.setFontRighteousRegular = function() {
   // Actual height 53 (56 - 4)
   return this.setFontCustom(

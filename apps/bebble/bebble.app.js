@@ -139,8 +139,6 @@ let draw = function() {
     const temp = locale.temp(current.temp-273.15).match(/^(\D*\d*)(.*)$/);
     g.drawString(temp[1]+temp[2], 4, h3+t);
   }
-
-  drawLock();
 };
 
 // at x,y width:wi thicknes:th
@@ -224,7 +222,7 @@ Bangle.setUI({
 
 g.clear();
 Bangle.loadWidgets();
-require("widget_utils").swipeOn(); // hide widgets, make them visible with a swipe
+// require("widget_utils").swipeOn(); // hide widgets, make them visible with a swipe
 
 loadSettings();
 loadThemeColors();

@@ -205,23 +205,20 @@ let drawLock = function(){
   }
 };
 
-Bangle.on('lock', drawLock);
-
 // Show launcher when middle button pressed
 Bangle.setUI({
   mode : "clock",
   remove : function() {
     // Called to unload all of the clock app
-    Bangle.removeListener('lock', drawLock);
     if (drawTimeout) clearTimeout(drawTimeout);
     drawTimeout = undefined;
     delete Graphics.prototype.setFontLECO1976Regular22;
     delete Graphics.prototype.setFontRighteousRegular;
-    require("widget_utils").show(); // re-show widgets
+    // require("widget_utils").show(); // re-show widgets
   }});
 
 g.clear();
-Bangle.loadWidgets();
+//Bangle.loadWidgets();
 // require("widget_utils").swipeOn(); // hide widgets, make them visible with a swipe
 
 loadSettings();

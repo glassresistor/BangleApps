@@ -1,10 +1,10 @@
 (function(back) {
-  const SETTINGS_FILE = "pebble.json";
+  const SETTINGS_FILE = "bebble.json";
 
   // TODO Only the color/theme indices should be written in the settings file so the labels can be translated
 
   // Initialize with default settings...
-  let s = {'bg': '#0f0', 'color': 'Green', 'theme':'System', 'showlock':false}
+  let s = {'bg': '#0f0', 'color': 'Green', 'theme':'System'}
 
   // ...and overwrite them with any saved values
   // This way saved values are preserved if a new version adds more settings
@@ -45,13 +45,6 @@
         s.theme = theme_options[v];
         save();
       }
-    },
-    /*LANG*/'Show Lock': {
-      value: settings.showlock,
-      onchange: () => {
-        settings.showlock = !settings.showlock;
-        save();
-      }
-    },
+    }
   });
 });
